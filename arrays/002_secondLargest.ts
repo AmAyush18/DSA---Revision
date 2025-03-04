@@ -2,11 +2,10 @@
 //     let ans = Number.MIN_SAFE_INTEGER
     
 //     arr.reduce((acc, curr) => {
-//         if(acc === curr) return acc
 //         if (curr > acc) {
 //             ans = acc
 //             return curr
-//         } else if (curr > ans) {
+//         } else if (curr > ans && curr < acc) {
 //             ans = curr
 //         }
 //         return acc
