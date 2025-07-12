@@ -43,4 +43,26 @@ class Solution {
 
         return dp[n-1];
     }
+
+    // Space Optimisation
+    private findMinCostSpaceOpt(height: number[]) : number {
+        let prev: number = 0;
+        let prev2: number = 0;
+
+        let n: number = height.length;
+
+        for (let i: number = 1; i <= n - 1; i++) {
+            let left = prev + Math.abs(height[i] + height[i-1])
+            let right = Number.MAX_SAFE_INTEGER
+
+            if (i > 1) {
+                right = prev2 + Math.abs(height[i] - height[i-2])
+            }
+
+            prev2 = prev;
+            prev = Math.min(left, right);
+        }
+
+        return prev;
+    }
 }
